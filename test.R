@@ -1,14 +1,3 @@
-## CacheMatrix Class V_0.2
-##
-## Class CacheMatrix
-## Methods
-##	set Assign a matrix x to the object, resets the value of inv
-##	get Returns the matrix x
-##	setinv Sets the cached inverse matrix inv mostly used in cacheSolve
-##	getinv Returns the inverse matrix inv
-##	cacheSolve calculates the inverse matrix inv of x
-##	fcacheSolve force recalculation of inv
-
 makeCacheMatrix <- function(x = matrix()) {
 ## Object creation function
 	inv<-NULL
@@ -34,10 +23,10 @@ makeCacheMatrix <- function(x = matrix()) {
 
 	cacheSolve<-function(){
 		inv<-getinv()
-		if(!(is.null(inv))){
+`		if(!is.null(inv)){
 			message("Inverse matrix already cached")
 		}
-		matrix<-get()
+		matrix<-x$get()
 		inv<-solve(matrix)
 		setinv(inv)
 	}
